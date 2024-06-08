@@ -78,4 +78,3 @@ def get_current_app():
         str: The name of the current application.
     """
     return ps(GET_CURRENT_APP_TEMPLATE).strip()
-
