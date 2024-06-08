@@ -40,6 +40,8 @@ The mouse API is elegant, too!
 
 ```python
 mouse.move(100, 200)   # (x, y)
+
+mouse.click()
 mouse.click(100, 200)  # (x, y)
 mouse.get_position()   # -> (x, y)
 ```

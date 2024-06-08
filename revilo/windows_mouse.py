@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Optional, Tuple, overload
 from .windows_ps import run_powershell
 
 CURSOR_TEMPLATE = r"""Add-Type -AssemblyName System.Windows.Forms
@@ -95,8 +95,20 @@ Add-Type -TypeDefinition $cSource -ReferencedAssemblies System.Windows.Forms,Sys
 [Clicker]::LeftClickAtPoint({x}, {y})"""
 
 
-def click(*, x: int, y: int):
-    run_powershell(CLICK_TEMPLATE, {"x": str(x), "y": str(y)})
+@overload
+def click() -> None: ...
+
+
+@overload
+def click(*, x: int, y: int) -> None: ...
+
+
+def click(*, x: Optional[int] = None, y: Optional[int] = None) -> None:
+    if x is None and y is None:
+        x, y = get_position()
+        run_powershell(CLICK_TEMPLATE, {"x": str(x), "y": str(y)})
+    else:
+        run_powershell(CLICK_TEMPLATE, {"x": str(x), "y": str(y)})
 
 
 POS_TEMPLATE = r"""Add-Type -AssemblyName System.Windows.Forms
