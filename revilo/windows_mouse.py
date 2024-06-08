@@ -7,7 +7,7 @@ $screen = [System.Windows.Forms.SystemInformation]::VirtualScreen
 """
 
 
-def move_mouse(x: int, y: int) -> None:
+def move(x: int, y: int) -> None:
     """Moves the cursor (mouse) to the specified coordinates.
 
     Args:
@@ -95,7 +95,7 @@ Add-Type -TypeDefinition $cSource -ReferencedAssemblies System.Windows.Forms,Sys
 [Clicker]::LeftClickAtPoint({x}, {y})"""
 
 
-def mouse_click(*, x: int, y: int):
+def click(*, x: int, y: int):
     run_powershell(CLICK_TEMPLATE, {"x": str(x), "y": str(y)})
 
 
@@ -104,7 +104,7 @@ Write-Host "$([Windows.Forms.Cursor]::Position.X),$([Windows.Forms.Cursor]::Posi
 """
 
 
-def get_mouse_position() -> Tuple[int, int]:
+def get_position() -> Tuple[int, int]:
     """Returns the current mouse position. (X, Y)"""
     res = run_powershell(POS_TEMPLATE).strip().split(",")
     return int(res[0]), int(res[1])
