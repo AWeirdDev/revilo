@@ -144,3 +144,6 @@ def push_notification(
             "actions": "\n".join(list(map(str, actions))),
         },
     )
+
+
+notify = push_notification
