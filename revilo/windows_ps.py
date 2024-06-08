@@ -45,7 +45,7 @@ def run_powershell(command: str, vars: Mapping[str, str] = {}) -> str:
         raise PowershellError("\n" + e.output.decode("ansi")) from e
 
 # alias
-ps = run_powershell
+run = run_powershell
 
 def pstemplate(command: str, vars: Mapping[str, str]) -> str:
     for key, value in vars.items():
