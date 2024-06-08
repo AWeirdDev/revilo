@@ -1,23 +1,15 @@
-from .windows_ps import run_powershell, check_powershell, psstr, psbool, psendl
-from .windows_keyboard import send_keys, hotkey, write
-from .windows_mouse import mouse_click, move_mouse, get_mouse_position
-from .windows_notifications import push_notification, Action
-from .windows_screen import take_screenshot, get_current_app
+from . import (
+    windows_ps as ps,
+    windows_mouse as mouse,
+    windows_notifications as toast,
+    windows_screen as screen,
+    windows_keyboard as keyboard,
+)
 
 __all__ = [
-    "run_powershell",
-    "check_powershell",
-    "send_keys",
-    "hotkey",
-    "write",
-    "mouse_click",
-    "move_mouse",
-    "get_mouse_position",
-    "push_notification",
-    "Action",
-    "take_screenshot",
-    "get_current_app",
-    "psstr",
-    "psbool",
-    "psendl",
+    "ps",
+    "mouse",
+    "toast",
+    "screen",
+    "keyboard"
 ]
