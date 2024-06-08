@@ -44,6 +44,8 @@ def run_powershell(command: str, vars: Mapping[str, str] = {}) -> str:
     except subprocess.CalledProcessError as e:
         raise PowershellError("\n" + e.output.decode("ansi")) from e
 
+# alias
+ps = run_powershell
 
 def pstemplate(command: str, vars: Mapping[str, str]) -> str:
     for key, value in vars.items():
