@@ -26,7 +26,7 @@ screenshot $bounds {where}
 def take_screenshot(
     path: str = "./screenshot.png",
     *,
-    unappropriately_disable_user_privacy_warning: bool = False,
+    inappropriately_disable_user_privacy_warning: bool = False,
 ):
     """Takes a screenshot and saves it to the specified path.
 
@@ -36,7 +36,7 @@ def take_screenshot(
     """
     ps(SCREENSHOT_TEMPLATE, {"where": psstr(path)})
 
-    if not unappropriately_disable_user_privacy_warning:
+    if not inappropriately_disable_user_privacy_warning:
         from .windows_notifications import push_notification
 
         push_notification("Revilo (Windows API)", "Took a screenshot")
